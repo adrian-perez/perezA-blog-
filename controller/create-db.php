@@ -10,4 +10,18 @@
         echo "Success: " .$connection->host_info;
     }
     
+    $exists = $connection->select_db($database);
+    
+    if(!$exists){
+      $query = $connection->query("CREATE DATABASE $database");  
+      
+      if($query){
+          echo "Successfully created database: = . $database";
+      }
+    }
+//    else {
+//        echo = "Database already exists.";
+//    }
+    
+    
     $connection->close();
