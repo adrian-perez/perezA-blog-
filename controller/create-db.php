@@ -19,9 +19,18 @@
           echo "Successfully created database: = . $database";
       }
     }
-//    else {
-//        echo = "Database already exists.";
-//    }
+    else {
+        echo "Database already exists.";
+    }
+   
+    $query = $connection->query("CREATE TABLE posts ("
+            . "id int(11)NOT MULL AUTO_INCREMENT,"
+            . "title varchat(255) NOT MULL"
+            . "post text NOT MULL"
+            . "PRIMARY KEY (id))");
     
+    if($query) {
+        echo "Succesfully create table: posts";
+    }
     
     $connection->close();
