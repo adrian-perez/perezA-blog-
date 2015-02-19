@@ -1,6 +1,6 @@
 <?php
     require_once(__DIR__ . "/database.php");
-    sessions_start();
+    session_start();
     
     $path = "/PerezA-Blog/";
     
@@ -9,7 +9,9 @@
     $password ="root";
     $database ="blog_db";
     
-    if(){
+    if(!isset($_SESSION["connection"])) {
         $connection = new database($host, $username, $password, $database);
         $_SESSION["connection"] = $connection;
     }
+    
+    
